@@ -11,3 +11,5 @@ Ban ve may bay backend
   * [x] Sign in.
   * [x] Create airport.
   * [x] Create flight.
+  * [x] Get a airport, multi airports.
+  * [x] Get a flight, multi flights. 
