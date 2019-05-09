@@ -32,3 +32,28 @@ export async function validCreateFlight(req, res, next) {
     res.status(err.code || 500).json({ message: err.message })
   }
 }
+
+export async function validGetFlight(req, res, next) {
+  try {
+    const { flightId } = req.params
+    if (!Types.ObjectId.isValid(flightId)) throw new ServerError('Incorrect type of flight', 400)
+    next()
+  } catch (err) {
+    logger.error(err)
+    res.status(err.code || 500).json({ message: err.message })
+  }
+}
+
+export async function validGetFlights(req, res, next) {
+  try {
+    const { skip, limit } = req.query
+
+    if (skip && parseInt(skip)) throw new ServerError('Invalid skip', 400)
+    if (limit && parseInt(limit)) throw new ServerError('Invalid limit', 400)
+
+    next()
+  } catch (err) {
+    logger.error(err)
+    res.status(err.code || 500).json({ message: err.message })
+  }
+}

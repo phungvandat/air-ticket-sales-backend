@@ -8,5 +8,9 @@ const routes = Router()
 
 // Create airport
 routes.post('/', authController.authenticateUser, mwAirportController.validCreateAirport, airportController.createAirport)
+// Get airports
+routes.get('/', mwAirportController.validGetAirports, airportController.getAirports)
+// Get airport
+routes.get('/:airportId', mwAirportController.validGetAirport, airportController.getAirport)
 
 export default routes
