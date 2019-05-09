@@ -6,6 +6,7 @@ import http from 'http'
 
 import logger from './utils/logger'
 import config from './config'
+import {createModerator} from './utils/createModerator'
 
 const app = express()
 
@@ -37,6 +38,8 @@ db.on('open', () => {
 })
 
 db.on('error', err => logger.error(err))
+
+createModerator()
 
 const server = http.Server(app)
 
