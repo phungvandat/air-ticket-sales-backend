@@ -7,7 +7,7 @@ export const ROLES = {
 
 // Define rank ticket
 export const RANK_TICKET = {
-  LUXURIOUS: 'Luxurious',
+  LUXURIOUS: 'luxurious',
   ORDINARY: 'ordinary',
 }
 
