@@ -5,10 +5,10 @@ import uniqueValidator from 'mongoose-unique-validator'
 const customerSchema = new Schema({
   fullname: { type: String, required: true },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  phone: { type: String, required: true },
+  phone: { type: String, unique: true, required: true },
   email: { type: String },
   address: { type: String },
-  identityCard: { type: String },
+  identityCard: { type: String, unique: true },
   birthday: { type: Date, required: true },
 }, { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } })
 

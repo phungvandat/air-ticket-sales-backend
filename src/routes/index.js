@@ -3,6 +3,7 @@ import auth from './authentication'
 import airports from './airports'
 import flights from './flights'
 import airTickets from './airTickets'
+import customers from './customers'
 
 import { verifyToken } from '../controllers/authController'
 
@@ -14,6 +15,7 @@ routes.use('/auth', auth)
 routes.use('/airports', airports)
 routes.use('/flights', flights)
 routes.use('/air-tickets', airTickets)
+routes.use('/customers', customers)
 
 routes.use((err, req, res, next) => {
   if (err.name !== 'HttpError' || !err.errorCode) return next(err)

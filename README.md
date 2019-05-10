@@ -17,3 +17,8 @@ Ban ve may bay backend
   * [x] Get a ticket.
   * [x] Get multi tickets.
   * [x] Filter ticket by customer, rank ticket, flight.
+  * [x] Create customer.
+  * [x] Update customer.
+  * [x] Get a customer.
+  * [x] Get multi customers.
+  * [x] Filter customers by phone, identiry card, email.
