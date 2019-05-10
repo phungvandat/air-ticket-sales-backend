@@ -7,10 +7,20 @@ import * as mwFlightController from '../controllers/mwControllers/mwFlight'
 const routes = Router()
 
 // Create flight
-routes.post('/', authController.authenticateUser, mwFlightController.validCreateFlight, flightController.createFlight)
+routes.post('/', 
+  authController.authenticateUser, 
+  mwFlightController.validCreateFlight, 
+  flightController.createFlight
+)
 // Get flights
-routes.get('/', mwFlightController.validGetFlights, flightController.getFlights)
+routes.get('/', 
+  mwFlightController.validGetFlights, 
+  flightController.getFlights
+)
 // Get flight
-routes.get('/:flightId', mwFlightController.validGetFlight, flightController.getFlight)
+routes.get('/:flightId', 
+  mwFlightController.validGetFlight,
+  flightController.getFlight
+)
 
 export default routes

@@ -13,3 +13,7 @@ Ban ve may bay backend
   * [x] Create flight.
   * [x] Get a airport, multi airports.
   * [x] Get a flight, multi flights. 
+  * [x] Create air ticket.
+  * [x] Get a ticket.
+  * [x] Get multi tickets.
+  * [x] Filter ticket by customer, rank ticket, flight.

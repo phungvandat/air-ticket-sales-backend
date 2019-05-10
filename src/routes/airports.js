@@ -7,10 +7,20 @@ import * as mwAirportController from '../controllers/mwControllers/mwAirport'
 const routes = Router()
 
 // Create airport
-routes.post('/', authController.authenticateUser, mwAirportController.validCreateAirport, airportController.createAirport)
+routes.post('/',
+  authController.authenticateUser,
+  mwAirportController.validCreateAirport,
+  airportController.createAirport
+)
 // Get airports
-routes.get('/', mwAirportController.validGetAirports, airportController.getAirports)
+routes.get('/',
+  mwAirportController.validGetAirports,
+  airportController.getAirports
+)
 // Get airport
-routes.get('/:airportId', mwAirportController.validGetAirport, airportController.getAirport)
+routes.get('/:airportId',
+  mwAirportController.validGetAirport,
+  airportController.getAirport
+)
 
 export default routes

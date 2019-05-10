@@ -7,8 +7,8 @@ const airTicketSchema = new Schema({
   seatNumber: { type: Number },
   customer: { type: Schema.Types.ObjectId, ref: 'Customer' },
   ticketRank: { type: String },
-  price: { type: Number },
+  price: { type: Number , default: 0},
 }, { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } })
 
 airTicketSchema.plugin(uniqueValidator)
-export default mongoose.model('Flight', airTicketSchema)
+export default mongoose.model('AirTicket', airTicketSchema)
