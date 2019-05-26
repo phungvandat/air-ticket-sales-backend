@@ -6,14 +6,14 @@ import http from 'http'
 
 import logger from './utils/logger'
 import config from './config'
-import {createModerator} from './utils/createModerator'
+import { createModerator } from './utils/createModerator'
 
 const app = express()
 
 app.use(morgan('dev'))
 
 app.use((req, res, next) => {
-  const cors = [config.CORS]
+  const cors = config.CORS.split(',')
   if (cors.includes(req.headers.origin)) {
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
   }
