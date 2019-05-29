@@ -22,5 +22,16 @@ routes.get('/:airportId',
   mwAirportController.validGetAirport,
   airportController.getAirport
 )
+// Update airport
+routes.put('/:airportId',
+  authController.authenticateUser,
+  mwAirportController.validUpdateAirport,
+  airportController.updateAirport
+)
+// Delete airport
+routes.delete('/:airportId',
+  authController.authenticateUser,
+  airportController.deleteAirport
+)
 
 export default routes
