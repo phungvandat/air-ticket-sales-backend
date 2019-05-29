@@ -45,3 +45,20 @@ export async function validGetAirports(req, res, next) {
     res.status(err.code || 500).json({ message: err.message })
   }
 }
+
+export async function validUpdateAirport(req, res, next) {
+  try {
+    const { name, address, city } = req.body
+    if (!name) throw new ServerError('Name airport is required', 400)
+
+    if (!address) throw new ServerError('Address airport is required', 400)
+
+    if (!validator.isIn(city.toString(), Object.values([...CITY_CODES.values()]))) {
+      throw new ServerError('City is not exist', 400)
+    }
+    next()
+  } catch (err) {
+    logger.error(err)
+    res.status(err.code || 500).json({ message: err.message })
+  }
+}

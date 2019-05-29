@@ -22,3 +22,4 @@ Ban ve may bay backend
   * [x] Get a customer.
   * [x] Get multi customers.
   * [x] Filter customers by phone, identiry card, email.
+  * [x] Update, delete airport.
