@@ -92,7 +92,7 @@ export async function getAirTickets(req, res) {
     const objQuery = {}
 
     if (flightId) objQuery.flight = flightId
-    if (ticketRank) objQuery.customer = customerId
+    if (customerId) objQuery.customer = customerId
     if (ticketRank) objQuery.ticketRank = ticketRank
 
     const airTickets = await AirTicket.find(objQuery)

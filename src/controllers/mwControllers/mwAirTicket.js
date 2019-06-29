@@ -71,7 +71,7 @@ export async function validGetAirTickets(req, res, next) {
 
     if (skip && parseInt(skip) < 0) throw new ServerError('Invalid skip', 400)
     if (limit && parseInt(limit) < 0) throw new ServerError('Invalid limit', 400)
-    if (customerId && !Types.ObjectId.isValid(flightId)) throw new ServerError('Incorrect type of customer', 400)
+    if (customerId && !Types.ObjectId.isValid(customerId)) throw new ServerError('Incorrect type of customer', 400)
     if (flightId && !Types.ObjectId.isValid(flightId)) throw new ServerError('Incorrect type of flight', 400)
 
     next()

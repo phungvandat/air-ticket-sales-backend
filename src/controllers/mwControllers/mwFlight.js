@@ -4,7 +4,16 @@ import { Types } from 'mongoose'
 
 export async function validCreateFlight(req, res, next) {
   try {
-    const { fromAirportId, toAirportId, flightTime, times, numSeats } = req.body
+    const {
+      fromAirportId,
+      toAirportId,
+      flightTime,
+      times,
+      numSeatsLuxurious,
+      priceLuxurious,
+      numSeatsOrdinary,
+      priceOrdinary,
+    } = req.body
 
     if (!fromAirportId) throw new ServerError('From airport is required', 400)
     if (!Types.ObjectId.isValid(fromAirportId)) throw new ServerError('Incorrect type of from airport', 400)
@@ -22,9 +31,17 @@ export async function validCreateFlight(req, res, next) {
 
     if (times < 0) throw new ServerError('Incorrect times', 400)
 
-    if (!numSeats) throw new ServerError('Seats is required', 400)
+    if (!numSeatsLuxurious) throw new ServerError('Seats luxurious is required', 400)
 
-    if (numSeats < 0) throw new ServerError('Seats is more than 0', 400)
+    if (!numSeatsOrdinary) throw new ServerError('Seats ordinary is required', 400)
+
+    if (numSeatsLuxurious < 0) throw new ServerError('Seats is more than 0', 400)
+
+    if (numSeatsOrdinary < 0) throw new ServerError('Seats is more than 0', 400)
+
+    if (!priceLuxurious) throw new ServerError('Price luxurious is required', 400)
+
+    if (!priceOrdinary) throw new ServerError('Price ordinary is required', 400)
 
     next()
   } catch (err) {
@@ -51,6 +68,33 @@ export async function validGetFlights(req, res, next) {
     if (skip && parseInt(skip)) throw new ServerError('Invalid skip', 400)
     if (limit && parseInt(limit)) throw new ServerError('Invalid limit', 400)
 
+    next()
+  } catch (err) {
+    logger.error(err)
+    res.status(err.code || 500).json({ message: err.message })
+  }
+}
+
+export async function validUpdateFlight(req, res, next) {
+  try {
+    const {
+      fromAirportId,
+      toAirportId,
+      flightTime,
+      times,
+      numSeatsLuxurious,
+      priceLuxurious,
+      numSeatsOrdinary,
+      priceOrdinary,
+    } = req.body
+    if (!fromAirportId) throw new ServerError('From airport is required', 400)
+    if (!toAirportId) throw new ServerError('From airport is required', 400)
+    if (!flightTime) throw new ServerError('Flight time is required', 400)
+    if (!times) throw new ServerError('Times is required', 400)
+    if (!numSeatsLuxurious) throw new ServerError('Number seats luxurious is required', 400)
+    if (!priceLuxurious) throw new ServerError('Price luxurious is required', 400)
+    if (!numSeatsOrdinary) throw new ServerError('Number seats ordinary is required', 400)
+    if (!priceOrdinary) throw new ServerError('Price ordinary is required', 400)
     next()
   } catch (err) {
     logger.error(err)

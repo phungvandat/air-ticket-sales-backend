@@ -7,7 +7,10 @@ const flightSchema = new Schema({
   toAirport: { type: Schema.Types.ObjectId, required: true, ref: 'Airport' },
   flightTime: { type: Date, required: true },
   times: { type: Number },
-  numSeats: { type: Number },
+  numSeatsLuxurious: { type: Number },
+  priceLuxurious: { type: Number },
+  numSeatsOrdinary: { type: Number },
+  priceOrdinary: { type: Number },
 }, { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } })
 
 flightSchema.plugin(uniqueValidator)
