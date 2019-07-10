@@ -11,9 +11,9 @@ export async function createFlight(req, res) {
       flightTime,
       times,
       numSeatsLuxurious,
-      priceLuxurious,
+      price,
       numSeatsOrdinary,
-      priceOrdinary,
+      intermediateAirport,
     } = req.body
 
     const arrResultPromises = await Promise.all([
@@ -30,9 +30,9 @@ export async function createFlight(req, res) {
       flightTime: new Date(flightTime),
       times,
       numSeatsLuxurious,
-      priceLuxurious,
       numSeatsOrdinary,
-      priceOrdinary,
+      price,
+      intermediateAirport,
     })
 
     flight = await flight.save()
@@ -95,9 +95,9 @@ export async function updateFlight(req, res) {
       flightTime,
       times,
       numSeatsLuxurious,
-      priceLuxurious,
+      price,
       numSeatsOrdinary,
-      priceOrdinary,
+      intermediateAirport,
     } = req.body
 
     let flight = await Flight.findById(flightId)
@@ -112,9 +112,9 @@ export async function updateFlight(req, res) {
     if (flightTime) objUpdate.flightTime = flightTime
     if (times) objUpdate.times = times
     if (numSeatsLuxurious) objUpdate.numSeatsLuxurious = numSeatsLuxurious
-    if (priceLuxurious) objUpdate.priceLuxurious = priceLuxurious
     if (numSeatsOrdinary) objUpdate.numSeatsOrdinary = numSeatsOrdinary
-    if (priceOrdinary) objUpdate.priceOrdinary = priceOrdinary
+    if (price) objUpdate.price = price
+    if (intermediateAirport) objUpdate.intermediateAirport = intermediateAirport
 
     flight.set(objUpdate)
 

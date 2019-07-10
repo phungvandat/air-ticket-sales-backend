@@ -10,9 +10,8 @@ export async function validCreateFlight(req, res, next) {
       flightTime,
       times,
       numSeatsLuxurious,
-      priceLuxurious,
+      price,
       numSeatsOrdinary,
-      priceOrdinary,
     } = req.body
 
     if (!fromAirportId) throw new ServerError('From airport is required', 400)
@@ -39,9 +38,7 @@ export async function validCreateFlight(req, res, next) {
 
     if (numSeatsOrdinary < 0) throw new ServerError('Seats is more than 0', 400)
 
-    if (!priceLuxurious) throw new ServerError('Price luxurious is required', 400)
-
-    if (!priceOrdinary) throw new ServerError('Price ordinary is required', 400)
+    if (!price) throw new ServerError('Price is required', 400)
 
     next()
   } catch (err) {
@@ -83,18 +80,16 @@ export async function validUpdateFlight(req, res, next) {
       flightTime,
       times,
       numSeatsLuxurious,
-      priceLuxurious,
       numSeatsOrdinary,
-      priceOrdinary,
+      price,
     } = req.body
     if (!fromAirportId) throw new ServerError('From airport is required', 400)
     if (!toAirportId) throw new ServerError('From airport is required', 400)
     if (!flightTime) throw new ServerError('Flight time is required', 400)
     if (!times) throw new ServerError('Times is required', 400)
     if (!numSeatsLuxurious) throw new ServerError('Number seats luxurious is required', 400)
-    if (!priceLuxurious) throw new ServerError('Price luxurious is required', 400)
+    if (!price) throw new ServerError('Price is required', 400)
     if (!numSeatsOrdinary) throw new ServerError('Number seats ordinary is required', 400)
-    if (!priceOrdinary) throw new ServerError('Price ordinary is required', 400)
     next()
   } catch (err) {
     logger.error(err)
