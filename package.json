@@ -21,7 +21,7 @@
     "mongoose-unique-validator": "2.0.3",
     "moment": "2.24.0",
     "jsonwebtoken": "8.5.1",
-    "validator": "10.11.0"
+    "validator": "13.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
