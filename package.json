@@ -20,7 +20,7 @@
     "bcryptjs": "2.4.3",
     "mongoose-unique-validator": "2.0.3",
     "moment": "2.24.0",
-    "jsonwebtoken": "8.5.1",
+    "jsonwebtoken": "9.0.0",
     "validator": "10.11.0"
   },
   "devDependencies": {
